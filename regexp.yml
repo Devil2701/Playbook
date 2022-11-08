@@ -1,0 +1,25 @@
+---
+ - name: playbook
+   hosts: all
+   become: True
+
+   tasks: 
+     - name: task
+       replace:
+         path: /home/ubuntu/file.txt
+         regexp: 'lucifer'
+         replace: 'hell'
+
+
+
+
+
+
+
+
+
+
+       ansible.builtin.lineinfile:
+         path: /home/ubuntu/file.txt
+         regexp: '^devil'
+         line: i am lucifer

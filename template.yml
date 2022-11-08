@@ -1,0 +1,16 @@
+--- 
+  - name: playbook
+    hosts: all
+    become: True
+
+    vars:
+      A: world
+
+
+    tasks: 
+     - name: Template
+       ansible.builtin.template:
+         src: devil2.txt
+         dest: /home/ubuntu/
+
+         

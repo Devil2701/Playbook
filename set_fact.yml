@@ -1,0 +1,14 @@
+---
+  - name: playbook
+    hosts: all
+    become: True
+
+    tasks:
+      - name: condition
+        set_fact: one="something" two="local_variable"
+
+      - name: RUN
+        debug:
+          msg: "we have {{one}} as {{two}}"
+
+...          

@@ -1,0 +1,15 @@
+---
+  - name: playbook06
+    hosts: all
+
+    vars_prompt:
+      - name: A
+        prompt: "prompt"
+        private: no
+        
+    tasks:
+      - name: tsk1
+        debug: 
+          msg: "{{A}}"
+
+...             

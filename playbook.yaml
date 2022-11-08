@@ -1,0 +1,22 @@
+---
+ - name: playbook01
+   hosts: all
+
+   vars_file:
+      data.txt
+
+   vars_prompt:
+    - name: A
+      prompt: "prompt"
+      private: no  
+   
+   vars:
+      A: "global msg"
+   tasks:
+      - name: tsk1\
+        vars:
+          A: "local msg"
+        debug:
+          msg: "{{A}}"
+    
+...

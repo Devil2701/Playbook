@@ -1,0 +1,50 @@
+---
+ - name: playbook01
+   hosts: all
+   become: True 
+
+
+
+   tasks:
+     - name: task01
+       debug:
+         msg: "{{ansible_hostname}}"
+       when: ansible_facts['os_family'] == "Debian" and ansible_facts['nodename'] == "ip-172-31-41-6"
+
+
+   tasks: 
+     - name: task01
+       debug:
+         msg: "{{ansible_hostname}}"
+       when: ansible_hostname ="ip-172-31-41-6"
+
+
+
+
+
+     - name: test-01
+       ansible.builtin.apt:
+         name: "{{item}}"
+         state: present
+
+       loop:
+          - apache2
+          - tree
+
+          
+          
+
+
+   tasks:
+     - name: install
+       apt:
+         name: "apache2"
+         state: "present" 
+
+     - name: Start
+       systemd: 
+         name: apache2
+             
+    
+
+...

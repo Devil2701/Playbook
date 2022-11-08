@@ -1,0 +1,13 @@
+---
+ - name: playbook01
+   hosts: all
+   become: True
+
+
+
+   tasks:
+   - name: task01 Ensure php extension matches new pattern
+     ansible.builtin.lineinfile:
+       path: /home/ubuntu/file.txt
+       insertbefore: '^demons'
+       line: 'i am over powerd'

@@ -1,0 +1,12 @@
+---
+  - name:
+    hosts: all
+    become: True
+
+    tasks:
+     - name: task
+       ansible.builtin.copy:
+         src: /root/devil.txt
+         dest: /home/ubuntu/
+
+    

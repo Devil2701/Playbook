@@ -1,0 +1,12 @@
+---
+ - name: playbook01
+   hosts: all
+   become: True
+
+
+
+   tasks:
+     - name: task01
+       debug:
+         msg: "{{ansible_hostname}}"
+       when: (ansible_facts['os_family'] == "Debian") or (ansible_facts['nodename'] == "ip-172-221-41-6")

@@ -1,0 +1,10 @@
+---
+  - name: playbook03
+    hosts: all
+
+    tasks:
+      - name: tsk1
+        debug: 
+         msg: "{{A}}"
+
+...       

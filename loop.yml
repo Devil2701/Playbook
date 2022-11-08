@@ -1,0 +1,17 @@
+---
+ - name: playbook01
+   hosts: all
+   become: True
+
+   tasks:
+     - name: test-01
+       ansible.builtin.apt:
+         name: "{{item}}"
+         state: present
+
+       loop:
+          - apache2
+          - tree
+
+...
+
