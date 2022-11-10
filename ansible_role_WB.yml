@@ -1,0 +1,41 @@
+# this will be in /webserver/tasks/main.yml
+...          
+- name: update 
+  apt:
+   update_cache: yes
+
+- name: Install NGINX Packages
+  apt:
+   name: nginx
+   state: latest
+
+- name: Start Service
+  service:
+   name: nginx
+   state: restarted
+   enabled: yes
+   
+- name: unzip
+  apt:
+   name: unzip
+   state: latest    
+
+- name: Download 
+  ansible.builtin.get_url:
+   url: https://www.free-css.com/assets/files/free-css-templates/download/page284/maker.zip
+   dest: /var/www/html/
+
+- name: Extract 
+  ansible.builtin.unarchive:
+   src: maker.zip
+   dest: /var/www/html/
+   remote_src: yes
+
+# this was the main playbook with ansible role
+---
+  - name: playbook01
+    hosts: all
+    become: True
+
+    roles:
+     - webserver
